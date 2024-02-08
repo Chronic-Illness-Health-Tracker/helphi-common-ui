@@ -3,7 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "common-ui": ["./dist/common-ui"]
+      "helphi-common-ui": ["./dist/helphi-common-ui"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
