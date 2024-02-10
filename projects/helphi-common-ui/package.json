@@ -1,15 +1,20 @@
 {
-  "name": "@helphi/helphi-common-ui",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^17.1.0",
-    "@angular/core": "^17.1.0"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "publishConfig": {
-    "access": "restricted"
-  },
-  "sideEffects": false
+    "name": "@helphi/helphi-common-ui",
+    "version": "0.0.1-snapshot.2",
+    "peerDependencies": {
+        "@angular/common": "^17.1.0",
+        "@angular/core": "^17.1.0",
+        "@angular/cdk": "^17.1.2",
+        "@angular/material": "^17.1.2",
+        "@angular/localize": "^17.1.0",
+        "@ng-bootstrap/ng-bootstrap": "^16.0.0",
+        "bootstrap": "^5.3.2"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "publishConfig": {
+        "access": "restricted"
+    },
+    "sideEffects": false
 }
