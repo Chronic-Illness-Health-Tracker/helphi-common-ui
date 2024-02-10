@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HelphiSidebarComponent } from '../../../helphi-common-ui/src/lib/helphi-sidebar/helphi-sidebar.component';
+import { UserSettingsMenuComponent } from '../../../helphi-common-ui/src/public-api';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, HelphiSidebarComponent],
+    imports: [RouterOutlet, UserSettingsMenuComponent, MatRippleModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })

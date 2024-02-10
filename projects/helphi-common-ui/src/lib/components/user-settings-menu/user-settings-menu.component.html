@@ -1,0 +1,31 @@
+<div class="card shadow" style="width: 10rem">
+    <div class="card-body d-flex flex-nowrap justify-content-center">
+        <a
+            id="help"
+            role="button"
+            class="link-dark link-opacity-75-hover p-1"
+            placement="bottom"
+            ngbTooltip="Help"
+            (click)="router.navigate([helpRoute])">
+            <i class="fa-light fa-circle-question fa-2xl"></i>
+        </a>
+        <a
+            id="settings"
+            role="button"
+            class="link-dark link-opacity-75-hover p-1"
+            placement="bottom"
+            ngbTooltip="Settings"
+            (click)="router.navigate([settingRoute])">
+            <i class="fa-light fa-gear fa-2xl"></i>
+        </a>
+        <a
+            id="profile"
+            role="button"
+            class="link-dark link-opacity-75-hover p-1"
+            placement="bottom"
+            ngbTooltip="Profile"
+            (click)="router.navigate([profileRoute])">
+            <i class="fa-light fa-circle-user fa-2xl"></i>
+        </a>
+    </div>
+</div>
