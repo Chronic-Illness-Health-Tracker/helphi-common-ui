@@ -1,0 +1,22 @@
+<header>
+    <div class="row align-items-center p-2">
+        <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1 col-xxl-1">
+            <div class="mt-1">
+                <button
+                    id="sidebar-toggle"
+                    type="menu"
+                    (click)="toggle()"
+                    class="btn">
+                    <i class="fa-light fa-bars fa-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div class="d-none d-sm-block col-sm-8">
+            <h1
+                id="title"
+                class="fw-bold font-monospace ps-sm-3 ps-md-0 ps-lg-3 mb-0">
+                {{ title | uppercase }}
+            </h1>
+        </div>
+    </div>
+</header>
