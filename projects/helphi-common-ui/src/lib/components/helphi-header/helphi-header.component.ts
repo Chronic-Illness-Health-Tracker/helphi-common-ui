@@ -9,12 +9,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrl: './helphi-header.component.scss',
 })
 export class HelphiHeaderComponent {
-    private _toggled: boolean = true;
-
     @Input() title?: string;
-    @Output() toggleSidebar = new EventEmitter<boolean>();
+    @Input() titleAlwaysVisible: boolean = false;
+    @Output() toggleSidebar = new EventEmitter<null>();
 
     toggle() {
-        this.toggleSidebar.emit(!this._toggled);
+        this.toggleSidebar.emit();
     }
 }

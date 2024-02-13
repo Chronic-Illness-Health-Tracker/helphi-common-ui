@@ -1,0 +1,53 @@
+<aside
+    #sidebar
+    class="offcanvas-lg offcanvas-start border border-0 h-100"
+    tabindex="-1"
+    id="sidebar"
+    aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header mt-3">
+        <helphi-header
+            [title]="title"
+            [titleAlwaysVisible]="true"
+            (toggleSidebar)="toggleSidebar()"></helphi-header>
+    </div>
+    <div class="offcanvas-body h-100">
+        <div class="d-flex flex-column justify-content-between h-100">
+            <div>
+                <button
+                    (click)="addClicked.emit()"
+                    id="sidebar-add"
+                    class="btn btn-outline-secondary border border-3 border-dark text-black">
+                    <i class="fa-regular fa-plus fa-2xl"></i>
+                </button>
+                <hr />
+
+                <menu class="list-group list-group-flush p-0">
+                    @for (item of sidebarContent; track $index) {
+                        <button
+                            class="list-group-item list-group-item-action border border-0 ps-0 fs-5">
+                            {{ item }}
+                        </button>
+                    }
+                </menu>
+            </div>
+            <div>
+                <hr />
+                <a
+                    role="button"
+                    class="text-body-tertiary link-offset-2 link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover me-4">
+                    Contact
+                </a>
+                <a
+                    role="button"
+                    class="text-body-tertiary link-offset-2 link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover me-4">
+                    About
+                </a>
+                <a
+                    role="button"
+                    class="text-body-tertiary link-offset-2 link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover me-4">
+                    v0.0.1
+                </a>
+            </div>
+        </div>
+    </div>
+</aside>

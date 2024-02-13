@@ -1,0 +1,32 @@
+<div class="container-fluid container-xl h-100">
+    <div class="d-flex flex-column h-100">
+        <div class="row">
+            <div class="col-3 mt-3">
+                <helphi-header
+                    [title]="title"
+                    (toggleSidebar)="sidebarToggled()"></helphi-header>
+            </div>
+            <div class="col-9 mt-3">
+                <helphi-user-settings-menu
+                    class="float-end"
+                    [helpRoute]="helpRoute"
+                    [settingRoute]="settingRoute"
+                    [profileRoute]="profileRoute"></helphi-user-settings-menu>
+            </div>
+        </div>
+        <div class="row flex-lg-grow-1">
+            <div class="col-lg-3">
+                <helphi-sidebar
+                    [showOffcanvas]="sidebarOpen"
+                    [sidebarContent]="sidebarContent"
+                    [title]="title"
+                    (closed)="sidebarOpened()"
+                    (opened)="sidebarClosed()"
+                    (addClicked)="onAddClicked()"></helphi-sidebar>
+            </div>
+            <div class="col-12 col-lg-9">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>
