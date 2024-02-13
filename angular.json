@@ -60,10 +60,7 @@
                             "projects/test-common-ui/src/favicon.ico",
                             "projects/test-common-ui/src/assets"
                         ],
-                        "styles": ["projects/test-common-ui/src/styles.scss"],
-                        "scripts": [
-                            "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-                        ]
+                        "styles": ["projects/test-common-ui/src/styles.scss"]
                     },
                     "configurations": {
                         "production": {
