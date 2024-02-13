@@ -61,7 +61,9 @@
                             "projects/test-common-ui/src/assets"
                         ],
                         "styles": ["projects/test-common-ui/src/styles.scss"],
-                        "scripts": []
+                        "scripts": [
+                            "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
