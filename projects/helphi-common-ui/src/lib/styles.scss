@@ -12,10 +12,11 @@ $red: #ed979d;
 $yellow: #ffe285;
 
 $primary: $blue;
-$secondary: #1a1e21bf;
+$secondary: #ced4da;
 $success: $green;
 $danger: $red;
 $warning: $yellow;
+$dark: #1a1e21bf;
 
 $input-btn-border-width: 2px;
 
@@ -73,4 +74,9 @@ ngb-tooltip-window {
 html,
 body {
     height: 100%;
+}
+
+.icon-hover:hover {
+    font-weight: 900;
+    opacity: 0.75;
 }
