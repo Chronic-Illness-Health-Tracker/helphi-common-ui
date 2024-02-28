@@ -7,6 +7,7 @@ import {
     HelphiContainerComponent,
 } from '../../../helphi-common-ui/src/public-api';
 import { MatRippleModule } from '@angular/material/core';
+import { SidebarConfig } from '../../../../dist/helphi-common-ui/public-api';
 
 @Component({
     selector: 'app-root',
@@ -26,6 +27,12 @@ export class AppComponent {
     constructor(public router: Router) {}
 
     title = 'test-common-ui';
+
+    sidebarConfig: SidebarConfig = {
+        showAddDropdown: true,
+        canAddConditions: false,
+        canAddPatients: true,
+    };
 
     dummyData: Array<string> = [
         'Heart Failure',

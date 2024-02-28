@@ -13,12 +13,34 @@
     <div class="offcanvas-body h-100">
         <div class="d-flex flex-column justify-content-between h-100">
             <div>
-                <button
-                    (click)="addClicked.emit()"
-                    id="sidebar-add"
-                    class="btn btn-outline-secondary border border-3 border-dark text-black">
-                    <i class="fa-regular fa-plus fa-2xl"></i>
-                </button>
+                <div ngbDropdown>
+                    <button
+                        ngbDropdownToggle
+                        id="sidebar-add"
+                        class="btn btn-outline-dark">
+                        Add
+                    </button>
+                    <div ngbDropdownMenu>
+                        <button
+                            [disabled]="!sidebarConfig.canAddConditions"
+                            (click)="
+                                router.navigate([
+                                    sidebarConfig.addConditionRoute
+                                ])
+                            "
+                            ngbDropdownItem>
+                            Health condition
+                        </button>
+                        <button
+                            [disabled]="!sidebarConfig.canAddPatients"
+                            (click)="
+                                router.navigate([sidebarConfig.addPatientRoute])
+                            "
+                            ngbDropdownItem>
+                            Patient to health condition
+                        </button>
+                    </div>
+                </div>
                 <hr />
 
                 <menu class="list-group list-group-flush p-0">

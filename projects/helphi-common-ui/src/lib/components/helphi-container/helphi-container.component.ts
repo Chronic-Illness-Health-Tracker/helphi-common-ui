@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HelphiHeaderComponent } from '../helphi-header/helphi-header.component';
 import { UserSettingsMenuComponent } from '../user-settings-menu/user-settings-menu.component';
 import { HelphiSidebarComponent } from '../helphi-sidebar/helphi-sidebar.component';
+import { SidebarConfig } from '../../api/sidebar-config';
 
 @Component({
     selector: 'helphi-container',
@@ -19,6 +20,7 @@ export class HelphiContainerComponent {
 
     @Input() title?: string;
     @Input() sidebarContent?: Array<string>;
+    @Input({ required: true }) sidebarConfig!: SidebarConfig;
     @Input({ required: true }) helpRoute!: string;
     @Input({ required: true }) settingRoute!: string;
     @Input({ required: true }) profileRoute!: string;
