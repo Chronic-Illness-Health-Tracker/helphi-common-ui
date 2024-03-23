@@ -21,24 +21,30 @@
                         Add
                     </button>
                     <div ngbDropdownMenu>
-                        <button
-                            [disabled]="!sidebarConfig.canAddConditions"
-                            (click)="
-                                router.navigate([
-                                    sidebarConfig.addConditionRoute
-                                ])
-                            "
-                            ngbDropdownItem>
-                            Health condition
-                        </button>
-                        <button
-                            [disabled]="!sidebarConfig.canAddPatients"
-                            (click)="
-                                router.navigate([sidebarConfig.addPatientRoute])
-                            "
-                            ngbDropdownItem>
-                            Patient to health condition
-                        </button>
+                        @if (sidebarConfig.addConditionRoute) {
+                            <button
+                                [disabled]="!sidebarConfig.canAddConditions"
+                                (click)="
+                                    router.navigate(
+                                        sidebarConfig.addConditionRoute
+                                    )
+                                "
+                                ngbDropdownItem>
+                                Health condition
+                            </button>
+                        }
+                        @if (sidebarConfig.addPatientRoute) {
+                            <button
+                                [disabled]="!sidebarConfig.canAddPatients"
+                                (click)="
+                                    router.navigate(
+                                        sidebarConfig.addPatientRoute
+                                    )
+                                "
+                                ngbDropdownItem>
+                                Patient to health condition
+                            </button>
+                        }
                     </div>
                 </div>
                 <hr />

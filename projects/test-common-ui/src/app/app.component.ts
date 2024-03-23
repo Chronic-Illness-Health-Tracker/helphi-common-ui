@@ -5,9 +5,9 @@ import {
     UserSettingsMenuComponent,
     HelphiHeaderComponent,
     HelphiContainerComponent,
+    SidebarConfig,
 } from '../../../helphi-common-ui/src/public-api';
 import { MatRippleModule } from '@angular/material/core';
-import { SidebarConfig } from '../../../../dist/helphi-common-ui/public-api';
 
 @Component({
     selector: 'app-root',

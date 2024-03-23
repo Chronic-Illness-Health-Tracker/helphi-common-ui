@@ -2,6 +2,6 @@ export type SidebarConfig = {
     showAddDropdown: boolean;
     canAddConditions: boolean;
     canAddPatients: boolean;
-    addConditionRoute?: string;
-    addPatientRoute?: string;
+    addConditionRoute?: Array<string>;
+    addPatientRoute?: Array<string>;
 };
