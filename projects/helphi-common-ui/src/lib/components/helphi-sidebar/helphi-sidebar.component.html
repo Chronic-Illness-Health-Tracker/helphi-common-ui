@@ -52,8 +52,9 @@
                 <menu class="list-group list-group-flush p-0">
                     @for (item of sidebarContent; track $index) {
                         <button
+                            (click)="router.navigate(item.route)"
                             class="list-group-item list-group-item-action border border-0 ps-0 fs-5">
-                            {{ item }}
+                            {{ item.content }}
                         </button>
                     }
                 </menu>

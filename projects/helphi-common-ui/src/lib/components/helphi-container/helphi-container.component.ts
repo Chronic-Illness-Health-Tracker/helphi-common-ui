@@ -19,7 +19,7 @@ export class HelphiContainerComponent {
     protected sidebarOpen: boolean = false;
 
     @Input() title?: string;
-    @Input() sidebarContent?: Array<string>;
+    @Input() sidebarContent?: Array<{ content: string; route: Array<string> }>;
     @Input({ required: true }) sidebarConfig!: SidebarConfig;
     @Input({ required: true }) helpRoute!: string;
     @Input({ required: true }) settingRoute!: string;

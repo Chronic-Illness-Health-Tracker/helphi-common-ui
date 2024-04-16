@@ -26,7 +26,7 @@ export class HelphiSidebarComponent implements AfterViewInit {
     protected offcanvas!: Offcanvas;
 
     @Input() title?: string;
-    @Input() sidebarContent?: Array<string>;
+    @Input() sidebarContent?: Array<{ content: string; route: Array<string> }>;
     @Input({ required: true }) sidebarConfig!: SidebarConfig;
     @Input() showAddButton: boolean = false;
     @Input() set showOffcanvas(show: boolean) {
