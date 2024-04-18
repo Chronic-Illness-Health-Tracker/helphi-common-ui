@@ -1,35 +1,43 @@
-import { Injectable } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
-import { lastValueFrom } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { AuthService, GetTokenSilentlyOptions } from '@auth0/auth0-angular';
+import {
+    firstValueFrom,
+    lastValueFrom,
+    Observable,
+    Subject,
+    Subscription,
+    takeUntil,
+} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class HelphiAuthService {
+    private accessToken?: string;
+
     constructor(private auth0: AuthService) {}
 
-    // public getToken(): Promise<string> {
-    //     const cookieToken = this.getTokenFromCookie('helphi');
+    async authenticate() {
+        const loggedIn = await firstValueFrom(this.auth0.isAuthenticated$);
 
-    //     if (cookieToken != null) {
-    //         return cookieToken;
-    //     }
+        if (loggedIn) {
+            const options: GetTokenSilentlyOptions = {
+                authorizationParams: { audience: 'dev.api.helphi' },
+            };
 
-    //     lastValueFrom(this.auth0.getAccessTokenSilently()).then(token => {});
-    // }
+            this.accessToken = await lastValueFrom(
+                this.auth0.getAccessTokenSilently(options)
+            );
+        } else {
+            this.auth0.loginWithRedirect();
+        }
+    }
 
-    private getTokenFromCookie(name: string): string | null {
-        const nameLenPlus = name.length + 1;
-        return (
-            document.cookie
-                .split(';')
-                .map(c => c.trim())
-                .filter(cookie => {
-                    return cookie.substring(0, nameLenPlus) === `${name}=`;
-                })
-                .map(cookie => {
-                    return decodeURIComponent(cookie.substring(nameLenPlus));
-                })[0] || null
-        );
+    logout() {
+        this.auth0.logout();
+    }
+
+    getAccessToken() {
+        return this.accessToken;
     }
 }

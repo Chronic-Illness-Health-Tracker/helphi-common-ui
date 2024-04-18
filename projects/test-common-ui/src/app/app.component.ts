@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import {
     HelphiSidebarComponent,
@@ -6,6 +6,7 @@ import {
     HelphiHeaderComponent,
     HelphiContainerComponent,
     SidebarConfig,
+    HelphiAuthService,
 } from '../../../helphi-common-ui/src/public-api';
 import { MatRippleModule } from '@angular/material/core';
 
@@ -23,8 +24,15 @@ import { MatRippleModule } from '@angular/material/core';
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })
-export class AppComponent {
-    constructor(public router: Router) {}
+export class AppComponent implements OnInit {
+    constructor(
+        public router: Router,
+        private auth: HelphiAuthService
+    ) {}
+
+    async ngOnInit(): Promise<void> {
+        await this.auth.authenticate();
+    }
 
     title = 'test-common-ui';
 
@@ -34,13 +42,7 @@ export class AppComponent {
         canAddPatients: true,
     };
 
-    dummyData: Array<string> = [
-        'Heart Failure',
-        'Hypertrophic Cardiomyopathy (HCM)',
-        'Short QT Syndrome (SQTS)',
-        'Catecholaminergic Polymorphic Ventricular Tachycardia (CPVT)',
-        'Brugada syndrome',
-    ];
+    dummyData = [{ content: 'dummy content', route: [''] }];
 
     addClicked() {}
 }
