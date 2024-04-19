@@ -15,16 +15,19 @@
             </div>
         </div>
         <div class="row flex-lg-grow-1">
-            <div class="col-2">
-                <helphi-sidebar
-                    [showOffcanvas]="sidebarOpen"
-                    [sidebarContent]="sidebarContent"
-                    [sidebarConfig]="sidebarConfig"
-                    [title]="title"
-                    (closed)="sidebarOpened()"
-                    (opened)="sidebarClosed()"
-                    (addClicked)="onAddClicked()"></helphi-sidebar>
-            </div>
+            @if (!sidebarConfig.hideSidebar) {
+                <div class="col-2">
+                    <helphi-sidebar
+                        [showOffcanvas]="sidebarOpen"
+                        [sidebarContent]="sidebarContent"
+                        [sidebarConfig]="sidebarConfig"
+                        [title]="title"
+                        (closed)="sidebarOpened()"
+                        (opened)="sidebarClosed()"
+                        (addClicked)="onAddClicked()"></helphi-sidebar>
+                </div>
+            }
+
             <div class="col-12 col-lg-10">
                 <ng-content></ng-content>
             </div>

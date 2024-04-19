@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
     title = 'test-common-ui';
 
     sidebarConfig: SidebarConfig = {
+        hideSidebar: true,
         showAddDropdown: true,
         canAddConditions: false,
         canAddPatients: true,

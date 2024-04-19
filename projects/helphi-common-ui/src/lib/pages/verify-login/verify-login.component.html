@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-secondary-subtle">
+            <div class="card-body d-flex flex-column align-items-center">
+                <h1>Welcome!</h1>
+                <h2 class="mb-4">
+                    It looks like this is your first time using Helphi!
+                </h2>
+                <h5 class="my-4">
+                    Before we can begin we just need to get a few permissions
+                    from you
+                </h5>
+                <button
+                    (click)="authService.getTokenWithPopup()"
+                    class="btn btn-lg btn-primary my-4">
+                    Take a look
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import {
     NgbDropdownModule,
     NgbTooltipModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { HelphiAuthService } from '../../service/helphi-auth.service';
 
 @Component({
     selector: 'helphi-user-settings-menu',
@@ -17,5 +18,8 @@ export class UserSettingsMenuComponent {
     @Input({ required: true }) settingRoute!: string;
     @Input({ required: true }) profileRoute!: string;
 
-    constructor(protected router: Router) {}
+    constructor(
+        protected router: Router,
+        protected authService: HelphiAuthService
+    ) {}
 }

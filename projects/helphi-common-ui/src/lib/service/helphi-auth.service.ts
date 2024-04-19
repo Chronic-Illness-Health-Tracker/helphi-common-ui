@@ -1,4 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService, GetTokenSilentlyOptions } from '@auth0/auth0-angular';
 import {
     firstValueFrom,
@@ -15,7 +16,10 @@ import {
 export class HelphiAuthService {
     private accessToken?: string;
 
-    constructor(private auth0: AuthService) {}
+    constructor(
+        private auth0: AuthService,
+        private router: Router
+    ) {}
 
     async authenticate() {
         const loggedIn = await firstValueFrom(this.auth0.isAuthenticated$);
@@ -25,9 +29,14 @@ export class HelphiAuthService {
                 authorizationParams: { audience: 'dev.api.helphi' },
             };
 
-            this.accessToken = await lastValueFrom(
-                this.auth0.getAccessTokenSilently(options)
-            );
+            try {
+                this.accessToken = await lastValueFrom(
+                    this.auth0.getAccessTokenSilently(options)
+                );
+            } catch (error) {
+                console.error(error);
+                this.redirectToPopupFlow();
+            }
         } else {
             this.auth0.loginWithRedirect();
         }
@@ -57,5 +66,21 @@ export class HelphiAuthService {
         } else {
             return undefined;
         }
+    }
+
+    async getTokenWithPopup() {
+        const options: GetTokenSilentlyOptions = {
+            authorizationParams: { audience: 'dev.api.helphi' },
+        };
+        this.accessToken = await lastValueFrom(
+            this.auth0.getAccessTokenWithPopup(options)
+        );
+
+        this.router.navigate(['']);
+    }
+
+    private redirectToPopupFlow() {
+        console.log('routing to verify');
+        this.router.navigate(['verify']);
     }
 }

@@ -1,4 +1,5 @@
 export type SidebarConfig = {
+    hideSidebar: boolean;
     showAddDropdown: boolean;
     canAddConditions: boolean;
     canAddPatients: boolean;

@@ -1,3 +1,7 @@
 a:hover > * {
     font-weight: 900;
 }
+
+.dropdown-no-arrow::after {
+    display: none !important;
+}
