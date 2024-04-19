@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
 
     async ngOnInit(): Promise<void> {
         await this.auth.authenticate();
+        this.auth.getId();
     }
 
     title = 'test-common-ui';

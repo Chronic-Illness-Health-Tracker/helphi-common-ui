@@ -40,4 +40,22 @@ export class HelphiAuthService {
     getAccessToken() {
         return this.accessToken;
     }
+
+    async getEmail(): Promise<string | undefined> {
+        const claims = await firstValueFrom(this.auth0.idTokenClaims$);
+        if (claims) {
+            return claims['email'];
+        } else {
+            return undefined;
+        }
+    }
+
+    async getId(): Promise<string | undefined> {
+        const claims = await firstValueFrom(this.auth0.idTokenClaims$);
+        if (claims) {
+            return claims['user_id'];
+        } else {
+            return undefined;
+        }
+    }
 }
