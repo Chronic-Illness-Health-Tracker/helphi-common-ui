@@ -80,7 +80,6 @@ export class HelphiAuthService {
     }
 
     private redirectToPopupFlow() {
-        console.log('routing to verify');
         this.router.navigate(['verify']);
     }
 }
